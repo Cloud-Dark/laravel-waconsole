@@ -1,66 +1,176 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel WA Console with Apipedia Integration
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A comprehensive Laravel application that integrates with the Apipedia API for WhatsApp, Telegram, SMS, AI Chat, and other messaging services.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- 📱 **WhatsApp Messaging**: Send text, media and files
+- 👥 **Bulk Messaging**: Send same or different messages to multiple recipients
+- 🤖 **Telegram Integration**: Send messages, images, documents, interactive buttons and location information
+- 📨 **SMS Services**: Regular, VIP, OTP, and VVIP SMS
+- 🧠 **AI Chat Integration**: Intelligent conversational AI
+- 🔗 **Chainable API**: Fluent interface for complex workflows
+- 📊 **Message Tracking**: Status monitoring and delivery receipts
+- 🚀 **Easy to Use**: Simple interface with 4 main buttons for navigation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Prerequisites
 
-## Learning Laravel
+- PHP >= 8.0
+- Composer
+- Laravel CLI (optional)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Steps
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Cloud-Dark/laravel-waconsole.git
+   cd laravel-waconsole
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Navigate to the Laravel app directory**
+   ```bash
+   cd laravel-app
+   ```
 
-## Laravel Sponsors
+3. **Install dependencies**
+   ```bash
+   composer install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+4. **Create environment file**
+   ```bash
+   cp .env.example .env
+   ```
 
-### Premium Partners
+5. **Generate application key**
+   ```bash
+   php artisan key:generate
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Usage
+
+### 1. Start the Development Server
+
+```bash
+php artisan serve
+```
+
+The application will be available at `http://127.0.0.1:8000`
+
+### 2. Application Flow
+
+1. **Dashboard**: The main page with 4 buttons:
+   - **Start**: Begin sending messages through Apipedia API
+   - **Documentation**: View detailed documentation for Apipedia API
+   - **Apipedia**: Learn more about Apipedia services
+   - **WA Console**: Access WhatsApp console features
+
+2. **Credentials**: Enter your App Key and Auth Key provided by Apipedia
+
+3. **Method Selection**: Choose the API method you want to execute:
+   - WhatsApp messaging methods
+   - Telegram integration methods
+   - SMS services
+   - AI Chat and other methods
+
+4. **Parameter Input**: Enter the required parameters based on the selected method
+
+5. **Send Request**: Execute the API call and view the JSON response
+
+### 3. Supported Methods
+
+#### WhatsApp Methods
+- `whatsapp`: Send text, media and files
+- `bulkV1`: Send same message to multiple recipients
+- `bulkV2`: Send different messages to multiple recipients
+
+#### Telegram Methods
+- `telegramSendMessage`: Send text messages to Telegram
+- `telegramSendImage`: Send images to Telegram
+- `telegramSendLocation`: Send location coordinates to Telegram
+- `telegramSendButtons`: Send interactive buttons
+- `telegramSendDocument`: Send documents
+
+#### SMS Methods
+- `smsRegular`: Send regular SMS
+- `smsVIP`: Send VIP priority SMS
+- `smsOTP`: Send OTP SMS
+- `smsVVIP`: Send high-priority VVIP SMS
+
+#### AI & Other Methods
+- `aiChat`: AI-powered conversation
+- `getProfile`: Retrieve profile information
+- `updatePresence`: Update presence status
+- `getMessageStatusAll`: Get all message statuses
+- `getLastStatus`: Get last message status
+- `getLastReceiptStatus`: Get last receipt status
+
+## Configuration
+
+### Environment Variables
+
+The application uses the following environment variables:
+
+- `APP_KEY`: Laravel application key (generated automatically)
+- Other standard Laravel environment variables
+
+## API Credentials
+
+To use the Apipedia API, you need to obtain:
+- **App Key**: Your application identifier
+- **Auth Key**: Your authentication token
+
+Contact Apipedia support or visit their portal to get these credentials.
+
+## Project Structure
+
+```
+laravel-app/
+├── app/
+│   └── Http/
+│       └── Controllers/
+│           └── ApipediaController.php  # Main controller
+├── resources/
+│   └── views/
+│       └── apipedia/                   # All UI views
+├── routes/
+│   └── web.php                         # Application routes
+└── vendor/
+    └── apipedia/
+        └── php-sdk/                    # Apipedia SDK
+```
+
+## Technologies Used
+
+- Laravel 9.52.20
+- PHP 8.0+
+- Apipedia PHP SDK
+- Bootstrap 5
+- Bootstrap Icons
+- jQuery (via Bootstrap)
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Code of Conduct
+## Support
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+For support with the Apipedia services:
+- 📧 Email: support@apipedia.id
+- 📚 Documentation: https://docs.apipedia.id
+- 🐛 Issues: GitHub Issues
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Thanks to the Laravel team for the excellent framework
+- Special thanks to the Apipedia team for their comprehensive API services
